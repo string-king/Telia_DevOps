@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Initiating cleanup..."
+
 current_date=$(date +%Y%m%d)
 
 archive_filename="archive_$current_date.tar.gz"
@@ -13,3 +15,5 @@ mv "$archive_filename" archive/
 
 # Delete the files that were included in the archive
 find . -maxdepth 1 -type f ! -name "CLEAN.sh" ! -newermt $(date +%Y-%m-%d) -delete
+
+echo "Finished cleanup."
